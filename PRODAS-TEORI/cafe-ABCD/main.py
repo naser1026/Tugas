@@ -35,6 +35,7 @@ while True :
     stop = str.lower(input("\nApakah Selesai (y/n)? "))
     if stop == 'y' :
         break
-        
+clear()
+print("++++++++++PROGRAM SELESAI, TERIMA KASIH++++++++++")
         
     
