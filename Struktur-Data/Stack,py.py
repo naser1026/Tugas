@@ -12,4 +12,12 @@ while True :
     isDone = str.lower(input("\nApakah Selesai (y/n)? "))
     if isDone == 'y' :
         break
+    
+
+
+
+    
+    
+    
+    
 
