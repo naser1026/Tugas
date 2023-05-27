@@ -16,25 +16,36 @@ while True :
     print("3. Cari Pesanan")
     print("4. Ubah Pesanan")
     print("5. Hapus Pesanan")
+    print("6. Selesai")
     while True :
         try :
             userOption = int(input("\nPilih Opsi\t: "))
-            if userOption <=5 and userOption > 0 :
+            if userOption <=6 and userOption > 0 :
                 break
             else :
                 print("Opsi tidak ada")
         except :
             print("Pilihan harus angka(1...5)")
     match userOption :
-        case 1 : myCafe.add()
-        case 2 : myCafe.read()
-        case 3 : myCafe.search()
-        case 4 : myCafe.update()
-        case 5 : myCafe.delete()
-    
-    stop = str.lower(input("\nApakah Selesai (y/n)? "))
-    if stop == 'y' :
-        break
+        case 1 : myCafe.add() 
+        case 2 : 
+            if myCafe.read() == False :
+                print("Database Masih Kosong, Silahkan Tambahkan Data Terlebih Dahulu")
+                os.system('pause')
+        case 3 : 
+            if myCafe.search() == False :
+                print("Database Masih Kosong, Silahkan Tambahkan Data Terlebih Dahulu")
+                os.system('pause')
+        case 4 : 
+            if myCafe.update() == False :
+                print("Database Masih Kosong, Silahkan Tambahkan Data Terlebih Dahulu")
+                os.system('pause')
+        case 5 : 
+            if myCafe.delete() == False :
+                print("Database Masih Kosong, Silahkan Tambahkan Data Terlebih Dahulu")
+                os.system('pause')
+        case 6 : break
+
 clear()
 print("++++++++++PROGRAM SELESAI, TERIMA KASIH++++++++++")
         
