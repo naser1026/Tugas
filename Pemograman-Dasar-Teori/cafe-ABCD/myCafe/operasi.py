@@ -64,7 +64,7 @@ def add() :
             print("Masukan Data Pesanan \n")
             try :
                 foodMenu()
-                foodCode = int(input('Kode Makanan\t\t\t: '))
+                foodCode = int(input('Kode Makanan\t: '))
                 if foodCode <= len(food) and foodCode > 0 :
                     if foodCode < 10 :
                         foodCode = str(f"0{foodCode}")
@@ -82,7 +82,7 @@ def add() :
             print("Masukan Data Pesanan \n")
             try :
                 drinkMenu()
-                drinkCode = int(input('Kode Minuman\t\t\t: '))
+                drinkCode = int(input('Kode Minuman\t: '))
                 if drinkCode <= len(drink) and drinkCode > 0 :
                     break
                 else :
@@ -380,22 +380,26 @@ def delete():
                 print("Nomor tidak ditemukan")
         except :
             print("Pilihan harus angka")
-    content = read(dataRaw = True)
-    for i, data in enumerate (content) :
-        if i == delOption :
-            pass
-        else :
-            try :
-                with open ('dataTemp.txt', 'a', encoding='utf-8') as file :
-                    file.write(data)
-            except :
-                print('Database error')
-                os.system('pause')
-                
-    os.remove(DBNAME)
-    os.rename('dataTemp.txt', DBNAME)
-    print("Data berhasil dihapus")
-    read()
+    if dataLength == 1 :
+        os.remove(DBNAME)
+        return print("\n---------------Database Kosong-----------------"), os.system('pause')
+    else : 
+        content = read(dataRaw = True)
+        for i, data in enumerate (content) :
+            if i == delOption :
+                pass
+            else :
+                try :
+                    with open ('dataTemp.txt', 'a', encoding='utf-8') as file :
+                        file.write(data)
+                except :
+                    print('Database error')
+                    os.system('pause')
+                    
+        os.remove(DBNAME)
+        os.rename('dataTemp.txt', DBNAME)
+        print("Data berhasil dihapus")
+        read()
 
 def foodMenu() :
     # Header
